@@ -12,7 +12,6 @@ import java.time.Duration;
 import org.openqa.selenium.io.FileHandler;
 
 public class HW1Test {
-
     WebDriver driver;
     WebDriverWait wait;
     static String USERNAME;
@@ -20,6 +19,7 @@ public class HW1Test {
 
     static String currentLogin;
     static String currentName;
+
 
     public void getScreenShot() {
         File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -71,11 +71,12 @@ public class HW1Test {
 
         Thread.sleep(2000);
 
+        getScreenShot();
+
         Assertions.assertEquals(driver.findElement(
                 By.cssSelector("#app > main > div > div > div.mdc-data-table > " +
                         "div.mdc-data-table__table-container > table > " +
                         "tbody > tr:nth-child(1) > td:nth-child(2)")).getText(), currentName);
-        getScreenShot();
     }
 
     @AfterEach
